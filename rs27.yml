@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myrs
+spec:
+  replicas: 5
+  selector:
+    matchlabels:
+      type: app
+    template:
+      metadata:
+        name: pod1
+        labels:
+          type: app
+      spec:
+        containers:
+        - name: mycontainer
+          image: akshayngawali/image27
+          ports:
+          - containerPort: 80     
+            name: http
+
